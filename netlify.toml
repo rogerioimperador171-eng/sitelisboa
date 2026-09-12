@@ -1,11 +1,11 @@
 [build]
-  command = "NITRO_PRESET=netlify bun run build"
-  publish = ".output/public"
+  command = "npm run build"
+  publish = "dist/client"
 
 [build.environment]
   NODE_VERSION = "22"
 
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/server"
+  to = "/index.html"
   status = 200
