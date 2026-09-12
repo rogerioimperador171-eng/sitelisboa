@@ -8,4 +8,14 @@ export default defineConfig({
     prerender: { enabled: true, crawlLinks: true },
     pages: [{ path: "/" }, { path: "/privacy" }],
   },
+  // Pin the build output so CI providers (e.g. Netlify) don't auto-detect their own
+  // preset and emit the server somewhere the prerender pass can't find it.
+  nitro: {
+    preset: "cloudflare-module",
+    output: {
+      dir: "dist",
+      serverDir: "dist/server",
+      publicDir: "dist/client",
+    },
+  },
 });
