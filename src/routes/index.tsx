@@ -2,21 +2,21 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, ChevronRight, LockKeyhole, ShieldCheck } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
-import age18 from "@/assets/age-18-29-B0eLVV9c.webp.asset.json";
-import age30 from "@/assets/age-30-39-DVhSF8y1.webp.asset.json";
-import age40 from "@/assets/age-40-49-BZu1qR4K.webp.asset.json";
-import age50 from "@/assets/age-50-plus-gMz1upqS.webp.asset.json";
-import athletic from "@/assets/athletic-CGdrfS1O.webp.asset.json";
-import defined from "@/assets/definied-Wrdw0qgP.webp.asset.json";
-import strong from "@/assets/fuerte-B1Yz6GbB.webp.asset.json";
-import slim from "@/assets/slim-cu9Pdo5-.webp.asset.json";
-import bodyStrong from "@/assets/body-fuerte-final-BLl7dzYT.webp.asset.json";
-import bodySoft from "@/assets/body-gelatina-CPG_ZEki.webp.asset.json";
-import bodyOverweight from "@/assets/body-sobrepeso-DrHNUHQ2.webp.asset.json";
-import bodySlim from "@/assets/body-slim-BOH2fEFZ.webp.asset.json";
-import resultOne from "@/assets/transform-1-Ct1cnP5c.webp.asset.json";
-import resultTwo from "@/assets/transform-2-Nb7vCTiU.webp.asset.json";
-import resultThree from "@/assets/transform-3-B6XrRqoA.webp.asset.json";
+import age18 from "@/assets/age-18-29-B0eLVV9c.webp";
+import age30 from "@/assets/age-30-39-DVhSF8y1.webp";
+import age40 from "@/assets/age-40-49-BZu1qR4K.webp";
+import age50 from "@/assets/age-50-plus-gMz1upqS.webp";
+import athletic from "@/assets/athletic-CGdrfS1O.webp";
+import defined from "@/assets/definied-Wrdw0qgP.webp";
+import strong from "@/assets/fuerte-B1Yz6GbB.webp";
+import slim from "@/assets/slim-cu9Pdo5-.webp";
+import bodyStrong from "@/assets/body-fuerte-final-BLl7dzYT.webp";
+import bodySoft from "@/assets/body-gelatina-CPG_ZEki.webp";
+import bodyOverweight from "@/assets/body-sobrepeso-DrHNUHQ2.webp";
+import bodySlim from "@/assets/body-slim-BOH2fEFZ.webp";
+import resultOne from "@/assets/transform-1-Ct1cnP5c.webp";
+import resultTwo from "@/assets/transform-2-Nb7vCTiU.webp";
+import resultThree from "@/assets/transform-3-B6XrRqoA.webp";
 import { Button } from "@/components/ui/button";
 
 const CHECKOUT_URL = "https://seguroamplopay.com/checkout/cmtvzevt9002k01psfvnz7p0i?offer=F7NZQ6X";
@@ -26,8 +26,8 @@ type Question = { id: string; question: string; options?: Option[]; fields?: { l
 
 const questions: Question[] = [
   { id: "age", question: "Select your age range to begin", options: [
-    { label: "18–29 years", image: age18.url }, { label: "30–39 years", image: age30.url },
-    { label: "40–49 years", image: age40.url }, { label: "50+ years", image: age50.url },
+    { label: "18–29 years", image: age18 }, { label: "30–39 years", image: age30 },
+    { label: "40–49 years", image: age40 }, { label: "50+ years", image: age50 },
   ] },
   { id: "goal", question: "What is your main goal?", options: [
     { label: "Lose weight", detail: "Focus on fat loss and definition", emoji: "⚖️" },
@@ -36,8 +36,8 @@ const questions: Question[] = [
     { label: "Improve overall fitness", detail: "Energy, stamina, and daily performance", emoji: "⚡" },
   ] },
   { id: "body", question: "Which physique is closest to your ultimate goal?", options: [
-    { label: "LEAN", image: slim.url }, { label: "ATHLETIC", image: athletic.url },
-    { label: "DEFINED", image: defined.url }, { label: "STRONG", image: strong.url },
+    { label: "LEAN", image: slim }, { label: "ATHLETIC", image: athletic },
+    { label: "DEFINED", image: defined }, { label: "STRONG", image: strong },
   ] },
   { id: "motivation", question: "What is your main motivation today?", options: [
     { label: "Look more attractive", emoji: "🔥" }, { label: "Have more energy", emoji: "⚡" },
@@ -64,8 +64,8 @@ const questions: Question[] = [
     { label: "5–6 times", emoji: "🔥" }, { label: "Every day", emoji: "🎖️" },
   ] },
   { id: "current", question: "How would you describe your current physique?", options: [
-    { label: "SKINNY FAT", image: bodySlim.url }, { label: "SOFT BODY", image: bodySoft.url },
-    { label: "OVERWEIGHT", image: bodyOverweight.url }, { label: "OUT OF SHAPE", image: bodyStrong.url },
+    { label: "SKINNY FAT", image: bodySlim }, { label: "SOFT BODY", image: bodySoft },
+    { label: "OVERWEIGHT", image: bodyOverweight }, { label: "OUT OF SHAPE", image: bodyStrong },
   ] },
   { id: "stairs", question: "After climbing two flights of stairs, how does your body react?", options: [
     { label: "My heart races and I lose my breath", emoji: "🫁" },
@@ -196,7 +196,7 @@ function Intro({ onStart }: { onStart: () => void }) {
       <h1 className="max-w-3xl text-3xl font-black uppercase leading-tight sm:text-5xl">Fitness assessment: discover whether your body can activate <em>“The Recruit's Trick”</em> and armor your physique in <em>21 days.</em></h1>
       <div className="my-5 h-px w-16 bg-primary" />
       <p className="max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">Answer these short questions to receive a <strong className="text-primary">personalized step-by-step plan</strong>, designed for your current level and fitness goal.</p>
-      <div className="my-7 w-full max-w-sm overflow-hidden rounded-lg border border-border bg-card shadow-2xl"><img src={resultOne.url} alt="Before and after result from the 21-day training method" className="aspect-square w-full object-cover" /></div>
+      <div className="my-7 w-full max-w-sm overflow-hidden rounded-lg border border-border bg-card shadow-2xl"><img src={resultOne} alt="Before and after result from the 21-day training method" className="aspect-square w-full object-cover" /></div>
       <Button onClick={onStart} className="w-full max-w-sm">Start my assessment <ArrowRight size={20} /></Button>
       <p className="mt-4 flex items-center gap-2 text-xs text-muted-foreground"><LockKeyhole size={14} /> Free assessment · Your answers remain private</p>
       <Link to="/privacy" className="mt-8 text-xs text-muted-foreground underline underline-offset-4">Privacy Policy</Link>
@@ -220,7 +220,7 @@ function Results({ onCheckout }: { onCheckout: () => void }) {
     <h1 className="text-3xl font-black uppercase leading-tight sm:text-5xl">Your body is compatible with the <em>21-day tactical protocol.</em></h1>
     <p className="mx-auto mt-4 max-w-xl text-muted-foreground">Your answers show that a progressive bodyweight plan can help you rebuild strength, reduce body fat, and restore your energy at home.</p>
     <div className="my-8 grid grid-cols-3 gap-2 sm:gap-4">
-      {[resultOne, resultTwo, resultThree].map((asset, index) => <img key={asset.url} src={asset.url} alt={`Student transformation result ${index + 1}`} className="aspect-[3/4] w-full rounded-md border border-border object-cover" />)}
+      {[resultOne, resultTwo, resultThree].map((asset, index) => <img key={asset} src={asset} alt={`Student transformation result ${index + 1}`} className="aspect-[3/4] w-full rounded-md border border-border object-cover" />)}
     </div>
     <div className="mx-auto max-w-xl border-y border-border py-7 text-left"><h2 className="mb-5 text-center text-xl font-black uppercase">Your mission includes</h2>
       <ul className="space-y-4">{["A complete 21-day bodyweight training plan", "Short sessions designed for your current level", "Progressive movements you can perform at home", "A clear daily roadmap with no guesswork"].map((item) => <li key={item} className="flex gap-3"><span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"><Check size={13} strokeWidth={3} /></span><span>{item}</span></li>)}</ul>
