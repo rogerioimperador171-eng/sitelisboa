@@ -5,7 +5,22 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Some browsers (and shared/autocompleted links) open "/index.html" directly.
+# Serving that file at a non-canonical URL breaks client-side routing, so send it home.
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy/index.html"
+  to = "/privacy"
+  status = 301
+  force = true
+
+# Anything else that is not a real prerendered page goes back to the assessment.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/"
+  status = 302
