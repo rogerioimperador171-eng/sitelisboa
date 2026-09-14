@@ -2,8 +2,9 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   // Compile down to syntax that older Android browsers / in-app WebViews understand.
-  build: { target: ["es2019", "chrome80", "safari13"] },
-  esbuild: { target: "es2019" },
+  vite: {
+    build: { target: ["es2019", "chrome80", "safari13"] },
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
